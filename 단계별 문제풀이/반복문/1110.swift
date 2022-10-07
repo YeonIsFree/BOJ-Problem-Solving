@@ -24,11 +24,11 @@ func makeNextNum(_ number: Int) -> Int {
     var nextNum = 0
     if digitSum >= 10 {
         nextNum = (unitsDigit * 10) + (digitSum % 10)
-        return nextNum
     } else {
         nextNum = (unitsDigit * 10) + digitSum
-        return nextNum
     }
+    
+    return nextNum
 }
 
 while true {
