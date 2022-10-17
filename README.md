@@ -1,5 +1,6 @@
-# BOJ Problem Solving 
- 백준 문제풀이 코드를 저장합니다. 조금씩 꾸준히 해보려합니다.
+# BOJ Problem Solving
+ - @poopooisfree
+ - 백준 문제풀이 코드를 저장합니다. 조금씩 꾸준히 해보려합니다.
 
 
 ## Swift
