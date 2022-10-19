@@ -1,4 +1,3 @@
-
 /*
  < 11720: 숫자의 합 >  작성: YeonIsFree
  swift의 reduce 함수 덕에 num 변수는 쓰지 않아도 괜찮다.
