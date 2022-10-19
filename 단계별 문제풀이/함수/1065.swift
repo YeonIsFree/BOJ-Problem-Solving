@@ -19,7 +19,7 @@ func hansuCounter(_ num: Int) -> Int {
         count = num
     } else {
         count = 99
-        for i in 100...num { // 100, 101, ... 209, 210
+        for i in 100...num {
             let numArr: [Int] = String(i).map{Int(String($0))!}
             if numArr[0] - numArr[1] == numArr[1] - numArr[2] {
                 count += 1
