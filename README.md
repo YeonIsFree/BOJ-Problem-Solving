@@ -14,8 +14,8 @@
 ##### - 함수
 ##### - 문자열
 ##### - 기본 수학 1
-##### - 동적 계획법 1
+##### - 동적 계획법 1 
 
 ## LEETCODE
 
-##### - Dynamic Programming
+##### - [Dynamic Programming](https://github.com/YeonIsFree/Problem-Solving/tree/main/LEETCODE/Dynamic%20Programming)
