@@ -2,7 +2,7 @@
 /*
  < 9251. LCS  >  작성: YeonIsFree
  LCS는 Longest Common Sequeces의 약자로 대표적인 DP문제이다.
- 예전에 풀었던 최대 부분 배열 길이 (Longest Common "Subarray") 문제와는 다르게 "Sequece"는 문자열이 연속되지 않아도 된다.
+ 예전에 풀었던 최대 부분 배열 길이 (Longest Common "Substring") 문제와는 다르게 "Sequece"는 문자열이 연속되지 않아도 된다.
  */
 
 import Foundation
