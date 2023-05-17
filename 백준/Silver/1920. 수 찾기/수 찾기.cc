@@ -6,18 +6,15 @@ int st, en, mid;
 int arr1[100003];
 int arr2[100003];
 
-int bst(int i) {
+int bst(int target) {
     // 초기 인덱스
     st = 0;
     en = n-1;
-    mid = (st + en) / 2;
-    
-    int target = i;
 
-    while(st != mid && en != mid) {
+    while(st <= en) {
         mid = (st + en) / 2;
 
-        // target이 mid와 같다면
+        // target이 mid와 같다면 (찾았다!)
         if(target == arr1[mid])
             return 1;
 
