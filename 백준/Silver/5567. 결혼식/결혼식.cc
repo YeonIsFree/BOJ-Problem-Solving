@@ -35,7 +35,7 @@ int main(void) {
     bfs();
     
     for(int i = 2; i <= n; i++)
-        if(dist[i] != 0 && dist[i] <= 3) cnt++;
+        if(dist[i] > 0 && dist[i] <= 3) cnt++;
     
     cout << cnt;
 
