@@ -7,20 +7,21 @@ int main(void) {
     ios::sync_with_stdio(0);
     cin.tie(0);
     cin >> n;
-
-    int en = 1, sum = 1, cnt = 1;
-    for(int st = 1; st <= n; st++) {
-        while(sum < n && en != n) {
-            en++;
-            if(en != n) sum += en;
+    int st = 1, en = 1, sum = 1, cnt = 1;
+    while(en != n) {
+        if(sum > n) {
+            sum -= st;
+            st++;
         }
-
-        // 여기 왔다는 것은 sum == n 이거나 en == n
-        if(en == n) break;
-        if(sum == n) cnt++;
-        sum -= st;
+        else if(sum < n) {
+            en++;
+            sum += en;
+        }
+        else {
+            cnt++;
+            sum -= st;
+            st++;
+        }
     }
-
     cout << cnt;
-
 }
