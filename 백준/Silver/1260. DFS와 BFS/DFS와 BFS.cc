@@ -1,51 +1,62 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n, m, v;
-vector<vector<int> > adj(1003);
-bool vis[10003];
+int n, m, st;
+vector<vector<int> > adj(1002);
+bool vis[1002];
 
-void dfs(int num) {
-    vis[num] = true;
-    cout << num << ' ';
-    for(auto nx : adj[num]) {
+void dfs(int x) {
+    cout << x << ' ';
+    vis[x] = true;
+    for(int nx : adj[x]) {
         if(vis[nx]) continue;
         dfs(nx);
     }
 }
 
-void bfs(int num) {
+void bfs(int x) {
+    fill(vis, vis+n, false);
+
     queue<int> Q;
-    Q.push(num);
-    vis[num] = true;
-    cout << num << ' ';
+
+    Q.push(x);
+    vis[x] = true;
     while(!Q.empty()) {
-        auto cur = Q.front(); Q.pop();
+        int cur = Q.front(); Q.pop();
+        cout << cur << ' ';
         for(int nx : adj[cur]) {
             if(vis[nx]) continue;
             Q.push(nx);
             vis[nx] = true;
-            cout << nx << ' ';
         }
     }
 }
 
+
 int main(void) {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    cin >> n >> m >> v;
-    for(int i = 0; i < m; i++) {
+
+    // 입력
+    cin >> n >> m >> st;
+    while(m--) {
         int a, b;
         cin >> a >> b;
         adj[a].push_back(b);
         adj[b].push_back(a);
     }
 
-    for(int i = 1; i <= n; i++)
-        sort(adj[i].begin(), adj[i].end());
+    // 방문할 수 있는 정점이 여러 개일 때 작은 정점부터 방문하기 위해 sort
+    for(int i = 1; i <= n; i++) sort(adj[i].begin(), adj[i].end());
 
-    dfs(v);
+    // DFS
+    dfs(st);
     cout << '\n';
-    fill(vis+1, vis+n+1, false);
-    bfs(v);
+
+    // BFS 하기 전 vis 배열 초기화
+    fill(vis+1, vis+1+n, false);
+    
+    // BFS
+    bfs(st);
+
 }
