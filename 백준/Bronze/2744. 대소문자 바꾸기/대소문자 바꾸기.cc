@@ -2,7 +2,6 @@
 using namespace std;
 
 string str;
-string str_rev;
 
 int main(void) {
     ios::sync_with_stdio(0);
