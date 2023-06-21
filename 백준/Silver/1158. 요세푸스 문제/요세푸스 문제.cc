@@ -2,7 +2,6 @@
 using namespace std;
 
 int n, k;
-int arr[5002];
 vector<int> ans;
 
 int main(void) {
@@ -10,24 +9,25 @@ int main(void) {
     cin.tie(0);
 
     cin >> n >> k;
-    for(int i = 1; i <= n; i++) arr[i] = i;
 
-    int idx = k;
-    while(ans.size() != n) {
-        ans.push_back(arr[idx]);
-        arr[idx] = 0;
+    queue<int> Q;
+    for(int i = 1; i <= n; i++) Q.push(i);
 
-        int cnt = k;
-        while(cnt--) {
-            idx++;
-            if(idx > n) idx = 1;
-            if(arr[idx] == 0 && ans.size() != n) cnt++;
+    while(Q.size() > 0) {
+        for(int i = 0; i < k-1; i++) {
+            int target = Q.front(); 
+            Q.push(target);
+            Q.pop();
         }
+
+        ans.push_back(Q.front());
+        Q.pop();
     }
 
     cout << "<";
-    for(int i = 0; i < n-1; i++)
+    for(int i = 0; i < n-1; i++) {
         cout << ans[i] << ", ";
-    cout << ans[n-1] << ">";
-    
+    }
+    cout << ans[n-1] << ">"; 
+
 }
