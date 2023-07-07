@@ -2,46 +2,50 @@
 using namespace std;
 
 int n, w, l;
-int trucks[1002];    // 트럭들
-queue<int> bridge; // 다리 상황을 나타내는 배열
-int sum;    // 현재 다리 위 트럭들의 무게
-int sec;
+queue<int> T;
+queue<int> B;
 
 int main(void) {
     ios::sync_with_stdio(0);
-    using namespace std;
+    cin.tie(0);
 
     // 입력
     cin >> n >> w >> l;
-    for(int i = 0; i < n; i++)
-        cin >> trucks[i];
-
-    // ----
     for(int i = 0; i < n; i++) {
-        // 현재 보고 있는 트럭 무게
-        int t = trucks[i]; 
+        int tmp;
+        cin >> tmp;
+        T.push(tmp);
+    }
 
-        while(1) {
-            // 다리를 한 칸씩 밀어준다.
-            if(bridge.size() == w) {
-                sum -= bridge.front();
-                bridge.pop();
-            }
+    // -----
+    int sec = 0;
+    int sum = 0;
+    while(!T.empty()) {
+        int t = T.front(); // 현재 보고 있는 트럭 무게
 
-            // 다리에 진입할 수 있을 경우
-            if(sum + t <= l) break;
-
-            // 다리에 진입할 수 없을 경우
-            bridge.push(0);
-            sec++;
+        if(B.size() == w) {
+            sum -= B.front();
+            B.pop();
         }
 
-        bridge.push(t);
-        sum += t;
-        sec++;
-    } // 모든 트럭 통과 완료
+        // 다리에 올라갈 수 있는 경우
+        if(sum + t <= l) {
+            T.pop();
+            B.push(t);
+            sum += t;
+            sec++;
+            continue;
+        }
 
-    // 마지막 트럭이 트럭에 진입 ~ 통과 하는 시간(w)을 더해준다.
+        // 다리에 올라갈 수 없는 경우
+        if(sum + t > l) {
+            B.push(0);
+            sec++;
+            continue;
+        }
+        sec++;
+    }
+
     cout << sec + w;
 
 }
