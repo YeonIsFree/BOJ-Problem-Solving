@@ -43,7 +43,6 @@ int main(void) {
             sec++;
             continue;
         }
-        sec++;
     }
 
     cout << sec + w;
