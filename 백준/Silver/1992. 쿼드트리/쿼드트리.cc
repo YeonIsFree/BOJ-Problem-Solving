@@ -15,16 +15,16 @@ bool is_all_same(int x, int y, int k) {
 void func(int x, int y, int k) {
     if(is_all_same(x, y, k)) {
         if(board[x][y] == '0') cout << 0;
-        else cout << 1;  
+        else cout << 1;
         return;
     }
 
-    cout << "(";
+    cout << '(';
     int u = k / 2;
     for(int i = 0; i < 2; i++)
         for(int j = 0; j < 2; j++)
-            func(x + (i*u), y + (j*u), u);
-    cout << ")";
+            func(x + i*u, y + j*u, u);
+    cout << ')';
 }
 
 int main(void) {
@@ -33,10 +33,10 @@ int main(void) {
 
     // 입력
     cin >> n;
-    for(int i = 0; i < n; i++)
+    for(int i = 0; i< n; i++)
         cin >> board[i];
     
-    // -----
+    // ----
     func(0, 0, n);
 
 }
