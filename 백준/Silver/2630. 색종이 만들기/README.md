@@ -22,7 +22,7 @@
 
 <p>위와 같은 규칙에 따라 잘랐을 때 <그림 3>은 <그림 1>의 종이를 처음 나눈 후의 상태를, <그림 4>는 두 번째 나눈 후의 상태를, <그림 5>는 최종적으로 만들어진 다양한 크기의 9장의 하얀색 색종이와 7장의 파란색 색종이를 보여주고 있다.</p>
 
-<p style="text-align: center;"><img alt="" src="" style="height:488px; width:487px"></p>
+<p style="text-align: center;"><img alt="" src="https://www.acmicpc.net/upload/images/VHJpKWQDv.png" style="height:488px; width:487px"></p>
 
 <p>입력으로 주어진 종이의 한 변의 길이 N과 각 정사각형칸의 색(하얀색 또는 파란색)이 주어질 때 잘라진 하얀색 색종이와 파란색 색종이의 개수를 구하는 프로그램을 작성하시오.</p>
 
