@@ -3,20 +3,15 @@ using namespace std;
 
 string solution(string s) {
     int len = s.size();
+    int mid = len / 2;
     
-    // 길이가 짝수일 경우
-    if(len % 2 == 0) {
-        string mid = "";
-        mid += s[len / 2 - 1];
-        mid += s[len / 2];
-        return mid;
+    if(len % 2 == 0) { // 길이가 짝수일 경우
+        string ans = s.substr(mid - 1, 2);
+        return ans;
     }
-    
-    // 길이가 홀수일 경우
-    else {
-        string mid = "";
-        mid += s[len / 2];
-        return mid;
+    else {             // 길이가 홀수일 경우
+        string ans = s.substr(mid, 1);
+        return ans;
     }
 
 }
