@@ -30,7 +30,6 @@ vector<int> solution(string s) {
            target += to_string(len % 2);
            len /= 2;
        }
-       reverse(target.begin(), target.end());
    }
     
     ans.push_back(cnt);
