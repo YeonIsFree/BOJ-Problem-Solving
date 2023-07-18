@@ -4,13 +4,10 @@ using namespace std;
 int cnt;
 
 int solution(vector<int> number) {
-    sort(number.begin(), number.end());
-    for(int i = 0; i < number.size(); i++) {
-        for(int j = i+1; j < number.size(); j++) {
-            int target = -(number[i] + number[j]);
-            cnt += upper_bound(number.begin() + j + 1, number.end(), target) - lower_bound(number.begin()+j+1, number.end(), target);
-        }
-    }
-    
-    return cnt;
+    int len = number.size();
+    for(int i = 0; i < len; i++)
+        for(int j = i+1; j < len; j++)
+            for(int k = j+1; k < len; k++)
+                if(number[i] + number[j] + number[k] == 0) cnt++;
+    return cnt;   
 }
