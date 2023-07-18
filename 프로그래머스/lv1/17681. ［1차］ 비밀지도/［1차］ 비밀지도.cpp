@@ -1,40 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<string> ans;
-
-string convert_to_binary(int num, int n) {
-    string tmp = "";
-    string ret = "";
-    while(num > 0) {
-        tmp += to_string(num % 2);
-        num /= 2;
-    }
-    reverse(tmp.begin(), tmp.end());
-    int len = tmp.size();
-    if(len < n) {
-        int repeat = n - len;
-        while(repeat--) ret += '0';
-    }
-    ret += tmp;
-    return ret;
-}
-
 vector<string> solution(int n, vector<int> arr1, vector<int> arr2) {
+    vector<string> answer;
     
     for(int i = 0; i < n; i++) {
-        // 각 행에 나온 숫자를 이진법 string으로 변환한다.
-        string binary_num1 = convert_to_binary(arr1[i], n);
-        string binary_num2 = convert_to_binary(arr2[i], n);
+        // 두 지도의 각 행을 합하여 새로운 행을 만들어낸다.
+        int new_row = arr1[i] | arr2[i];
         
-        // 둘 중에 하나라도 벽(#, 1)이면 벽, 둘 다 빈 칸(' ', 0) 이면 빈 칸
+        // 현재 행을 나타내는 10진법 수를 2진으로 변환하며 '#' 또는 ' '로 표기한다.
         string tmp = "";
         for(int j = 0; j < n; j++) {
-            if(binary_num1[j] == '1' || binary_num2[j] == '1') tmp += '#';
-            else tmp += ' ';
+            (new_row % 2)? tmp += '#' : tmp += ' ';
+            new_row /= 2;
         }
         
-        ans.push_back(tmp);
+        // 현재 만들어진 문자열 tmp 는 뒤집어진 상태라서 reverse 해준다.
+        reverse(tmp.begin(), tmp.end());
+        
+        // '#', ' '로 이루어진 새로운 행을 정답 배열에 넣어준다.
+        answer.push_back(tmp);
     }
-    return ans;
+    
+    return answer;
 }
