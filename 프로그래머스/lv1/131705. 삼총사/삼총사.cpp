@@ -1,13 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int cnt;
-
 int solution(vector<int> number) {
+    int answer = 0;
+    sort(number.begin(), number.end());
+    
     int len = number.size();
-    for(int i = 0; i < len; i++)
-        for(int j = i+1; j < len; j++)
-            for(int k = j+1; k < len; k++)
-                if(number[i] + number[j] + number[k] == 0) cnt++;
-    return cnt;   
+    for(int i = 0; i < len - 1; i++) {
+        for(int j = i+1; j < len; j++) {
+            int target = -(number[i] + number[j]);
+            auto upper_it = upper_bound(number.begin() + j + 1, number.end(), target);
+            auto lower_it = lower_bound(number.begin() + j + 1, number.end(), target);
+            answer += upper_it - lower_it;
+        }
+    }
+    return answer;
 }
